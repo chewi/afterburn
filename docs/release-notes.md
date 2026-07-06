@@ -12,6 +12,7 @@ Major changes:
 - Azure: Add `render-ignition` subcommand to generate Ignition config fragments from IMDS metadata
 - Hetzner: Add support for network configuration
 - Support the generation of NetworkManager connection profiles (keyfile format)
+- Support systemd-network-generator by emitting `/run/afterburn/network-generator.env` from the initrd
 
 Minor changes:
 
