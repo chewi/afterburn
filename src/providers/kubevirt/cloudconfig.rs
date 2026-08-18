@@ -203,7 +203,7 @@ impl MetadataProvider for KubeVirtCloudConfig {
                     IpNetwork::V4(n) => (n.ip().to_string(), n.mask().to_string()),
                     IpNetwork::V6(n) => (dracut_addr(&n.ip().into()), n.prefix().to_string()),
                 };
-                kargs.push(format!("ip={}:::{}::{}:static", ip, netmask_or_prefix, id));
+                kargs.push(format!("ip={}:::{}::{}:off", ip, netmask_or_prefix, id));
             }
 
             // Add DHCP configuration

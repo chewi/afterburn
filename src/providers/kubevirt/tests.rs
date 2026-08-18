@@ -205,8 +205,8 @@ fn test_network_data() {
 
         // Static IPs without gateway (gateway is passed via rd.route)
         let expected = [
-            "ip=192.168.1.10:::255.255.255.0::eth0:static",
-            "ip=[2001:db8::10]:::64::eth0:static",
+            "ip=192.168.1.10:::255.255.255.0::eth0:off",
+            "ip=[2001:db8::10]:::64::eth0:off",
             "ip=eth1:dhcp,dhcp6",
             "rd.route=0.0.0.0/0:192.168.1.1",
             "rd.route=[::/0]:[2001:db8::1]",
