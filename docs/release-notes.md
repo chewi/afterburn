@@ -25,6 +25,7 @@ Minor changes:
 - Drop the maplit dependency
 - Don't panic truncating an over-long hostname with multi-byte characters
 - ProxmoxVE: Emit one `nameserver=` karg per address so multiple DNS servers work
+- ProxmoxVE: Prevent rd-network-kargs from failing without a config drive
 
 Packaging changes:
 

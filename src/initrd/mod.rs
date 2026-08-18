@@ -5,7 +5,7 @@
 //! fetcher.
 
 use crate::providers::kubevirt;
-use crate::providers::proxmoxve::ProxmoxVEConfigDrive;
+use crate::providers::proxmoxve;
 use crate::providers::vmware::VmwareProvider;
 use crate::providers::MetadataProvider;
 use anyhow::{Context, Result};
@@ -32,7 +32,7 @@ static PROC_CMDLINE_PATH: &str = "/proc/cmdline";
 pub(crate) fn fetch_network_kargs(provider: &str) -> Result<Option<String>> {
     match provider {
         "vmware" => VmwareProvider::try_new()?.rd_network_kargs(),
-        "proxmoxve" => ProxmoxVEConfigDrive::try_new()?.rd_network_kargs(),
+        "proxmoxve" => proxmoxve::try_config_drive_else_leave()?.rd_network_kargs(),
         "kubevirt" => kubevirt::try_new_provider_else_noop()?.rd_network_kargs(),
         _ => Ok(None),
     }
