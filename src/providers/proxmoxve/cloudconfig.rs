@@ -241,7 +241,7 @@ impl MetadataProvider for ProxmoxVECloudConfig {
                     match dhcp {
                         DhcpSetting::V4 => kargs.push("ip=dhcp".to_string()),
                         DhcpSetting::V6 => kargs.push("ip=dhcp6".to_string()),
-                        DhcpSetting::Both => kargs.push("ip=dhcp,dhcp6".to_string()),
+                        DhcpSetting::Both => kargs.push("ip=any".to_string()),
                     }
                 }
 

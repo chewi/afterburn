@@ -27,6 +27,7 @@ Minor changes:
 - ProxmoxVE: Emit one `nameserver=` karg per address so multiple DNS servers work
 - ProxmoxVE: Prevent rd-network-kargs from failing without a config drive
 - KubeVirt: Use `off` rather than `static` to disable IP autoconf for Dracut and systemd compatibility
+- KubeVirt, ProxmoxVE: Use `ip=any` rather than `ip=dhcp,dhcp6` for systemd compatibility. As of Dracut 112, its network-legacy module treats `ip=any` as IPv4-only, so this change breaks IPv6 in that case. At the time of writing, a Dracut change to make this dual stack is under review.
 
 Packaging changes:
 

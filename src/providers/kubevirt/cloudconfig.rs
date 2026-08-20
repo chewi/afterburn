@@ -211,7 +211,7 @@ impl MetadataProvider for KubeVirtCloudConfig {
                 match dhcp {
                     DhcpSetting::V4 => kargs.push(format!("ip={}:dhcp", id)),
                     DhcpSetting::V6 => kargs.push(format!("ip={}:dhcp6", id)),
-                    DhcpSetting::Both => kargs.push(format!("ip={}:dhcp,dhcp6", id)),
+                    DhcpSetting::Both => kargs.push(format!("ip={}:any", id)),
                 }
             }
 
