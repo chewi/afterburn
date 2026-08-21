@@ -403,10 +403,16 @@ impl ProxmoxVECloudNetworkConfigEntry {
             }
 
             if subnet.subnet_type == "dhcp" || subnet.subnet_type == "dhcp4" {
-                iface.dhcp = Some(DhcpSetting::V4)
+                iface.dhcp = iface
+                    .dhcp
+                    .map(|d| d.merge(DhcpSetting::V4))
+                    .or(Some(DhcpSetting::V4))
             }
             if subnet.subnet_type == "dhcp6" {
-                iface.dhcp = Some(DhcpSetting::V6)
+                iface.dhcp = iface
+                    .dhcp
+                    .map(|d| d.merge(DhcpSetting::V6))
+                    .or(Some(DhcpSetting::V6))
             }
             if subnet.subnet_type == "ipv6_slaac" {
                 warn!("subnet type \"ipv6_slaac\" not supported, ignoring");
