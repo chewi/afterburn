@@ -22,6 +22,7 @@ Minor changes:
 - ProxmoxVE: Explicitely deactivate Dracut IP autoconf as the IP is statically set
 - Oracle Cloud: Handle nested metadata values for instance pool members
 - Drop the maplit dependency
+- Don't panic truncating an over-long hostname with multi-byte characters
 
 Packaging changes:
 
